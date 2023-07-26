@@ -9,7 +9,11 @@ from dataclasses import dataclass
 
 
 @dataclass
+
 class DataIngestionConfig:
+    '''
+        paths are defined related to the data we are using the program this manages the path.
+    '''
     train_data_path: str=os.path.join('artifacts',"train.csv")
     test_data_path: str =os.path.join('artifacts',"test.csv")
     raw_data_path : str=os.path.join('artifacts',"data.csv")
@@ -20,8 +24,12 @@ class DataIngestion:
          self.ingestion_config = DataIngestionConfig()
     
     def initiate_data_ingestion(self):
+        '''
+            The actual ingestion of data taking place here.
+        '''
         logging.info("Enter the data ingestion method or component")
         try:
+            # taking data from the local this can we change furtur
             df=pd.read_csv("/home/info/Desktop/ml_project/notebook/data/stud.csv")
             logging.info("Read the dataset as dataframe")
 
