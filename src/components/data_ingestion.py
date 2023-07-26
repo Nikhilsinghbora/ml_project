@@ -1,5 +1,6 @@
 import os
 import sys
+from src.components.data_transformation import DataTransformation
 from src.exception import CustomException
 from src.logger import logging
 import pandas as pd
@@ -38,7 +39,7 @@ class DataIngestion:
             logging.info("Train test split initialized")
             train_set,test_set = train_test_split(df,test_size = 0.2,random_state = 42)
             test_set.to_csv(self.ingestion_config.test_data_path,index = False,header = True)
-
+            train_set.to_csv(self.ingestion_config.train_data_path, index = False,header = True)
             logging.info("Ingestion of the data is completed")
 
             return(
@@ -51,4 +52,6 @@ class DataIngestion:
 
 if __name__ == "__main__":
     obj = DataIngestion()
+    obj2 = DataTransformation()
     obj.initiate_data_ingestion()
+    obj2.initiate_data_transformation("/home/info/Desktop/ml_project/artifacts/train.csv","artifacts/test.csv")
