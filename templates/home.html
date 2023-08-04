@@ -1,10 +1,10 @@
 <html>
 <body>
-    <link rel="stylesheet" href="form_style.css">
+    <link rel="stylesheet" href="static/form_style.css">
     <div class="login">
        <h1>Student Exam Performance Indicator</h1>
    
-       <form action="{{ url_for('predict_datapoint')}}" method="post">
+       <form action="/predictdata" method="POST">
         <h1>
             <legend>Student Exam Performance Prediction</legend>
         </h1>
@@ -22,7 +22,7 @@
         </div>
         <div class="mb-3">
             <label class="form-label">Race or Ethnicity</label>
-            <select class="form-control" name="ethnicity" placeholder="Enter you ethnicity" required>
+            <select class="form-control" name="race_ethnicity" placeholder="Enter you ethnicity" required>
                 <option class="placeholder" selected disabled value="">Select Ethnicity</option>
                 <option value="group A">
                     Group A
@@ -106,7 +106,7 @@
         </div>
     </form>
     <h2>
-       THE  prediction is {{result}}
+       Maths marks prediction is {{results}}
     </h2>
    <body>
 </html>
